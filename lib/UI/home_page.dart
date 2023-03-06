@@ -35,7 +35,9 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {}, icon: const Icon(Ionicons.search_outline)),
+              color: blueColor,
+              onPressed: () {},
+              icon: const Icon(Ionicons.search_outline)),
         ],
       ),
       body: ListView(

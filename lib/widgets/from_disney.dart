@@ -17,8 +17,8 @@ class FromDisney extends StatelessWidget {
             width: double.maxFinite,
             height: 140,
             child: Card(
-              // color: greyColor,
-              elevation: 0.4,
+              color: Colors.transparent,
+              elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               child: InkWell(
