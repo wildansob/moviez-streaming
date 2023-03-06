@@ -58,7 +58,7 @@ class MoviesHighlight extends StatelessWidget {
                                   highlightMovies[index].genre,
                                   style: greyTextStyle.copyWith(
                                     fontSize: 16,
-                                    fontWeight: semibold,
+                                    fontWeight: regular,
                                   ),
                                 ),
                               ],
