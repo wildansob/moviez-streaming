@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:moviez_streaming/shared/theme.dart';
+import 'package:moviez_streaming/widgets/movies_highlight.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +35,12 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {}, icon: const Icon(Ionicons.search_outline)),
+        ],
+      ),
+      body: ListView(
+        children: const [
+          SizedBox(height: 30),
+          MoviesHighlight(),
         ],
       ),
     );
