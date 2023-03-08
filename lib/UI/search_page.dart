@@ -11,8 +11,9 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final TextEditingController? controller = TextEditingController();
   List<SearchResultModel> displayList = List.from(searchResult);
+
+// Search Feature
   void updateList(String value) {
     setState(() {
       searchResult = searchResult
@@ -42,7 +43,6 @@ class _SearchPageState extends State<SearchPage> {
                     fontSize: 16,
                     fontWeight: medium,
                   ),
-                  controller: controller,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.transparent,
