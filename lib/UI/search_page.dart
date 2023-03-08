@@ -88,7 +88,7 @@ class _SearchPageState extends State<SearchPage> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(24))),
                     child: Text(
-                      "Sugested Movie",
+                      "Suggest Movie",
                       style: whiteTextStyle.copyWith(
                         fontSize: 16,
                         fontWeight: regular,
