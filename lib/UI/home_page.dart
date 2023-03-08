@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:moviez_streaming/UI/search_page.dart';
 import 'package:moviez_streaming/shared/theme.dart';
 import 'package:moviez_streaming/widgets/from_disney.dart';
 import 'package:moviez_streaming/widgets/movies_highlight.dart';
@@ -36,7 +37,12 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
               color: blueColor,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchPage()));
+              },
               icon: const Icon(Ionicons.search_outline)),
         ],
       ),

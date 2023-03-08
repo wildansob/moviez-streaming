@@ -1,16 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:moviez_streaming/models/search_result_model.dart';
 import 'package:moviez_streaming/shared/theme.dart';
 import 'package:moviez_streaming/widgets/search_result.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
+
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  final TextEditingController? controller = TextEditingController();
+  List<SearchResultModel> displayList = List.from(searchResult);
+  void updateList(String value) {
+    setState(() {
+      searchResult = searchResult
+          .where((element) =>
+              element.titleMovie.toLowerCase().contains(value.toLowerCase()))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
-      body: SafeArea(
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.only(left: 24, top: 38, right: 24),
           child: Column(
@@ -19,10 +37,12 @@ class SearchPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 24),
                 child: TextField(
+                  onChanged: (value) => updateList(value),
                   style: blueTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
                   ),
+                  controller: controller,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.transparent,
@@ -54,6 +74,29 @@ class SearchPage extends StatelessWidget {
                 height: 20,
               ),
               const SearchResult(),
+              const SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 220,
+                  height: 50,
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                        backgroundColor: blueColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24))),
+                    child: Text(
+                      "Sugested Movie",
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 16,
+                        fontWeight: regular,
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
